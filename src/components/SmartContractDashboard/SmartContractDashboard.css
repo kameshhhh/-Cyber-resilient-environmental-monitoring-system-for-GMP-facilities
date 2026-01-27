@@ -1,0 +1,660 @@
+/**
+ * Smart Contract Dashboard Styles
+ * Professional styling for regulatory compliance interface
+ */
+
+.smart-contract-dashboard {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #1a1f3a 0%, #0d1229 100%);
+  color: #e0e6ed;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.header-info h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #9f7aea, #b794f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 8px 0;
+}
+
+.header-info p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.refresh-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #e0e6ed;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Stats Bar */
+.stats-bar {
+  display: flex;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-item .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b794f4;
+}
+
+.stat-item .stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 320px 1fr 280px;
+  gap: 24px;
+}
+
+/* Contracts Panel */
+.contracts-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.contracts-panel h2 {
+  font-size: 1.1rem;
+  color: #b794f4;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contracts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contract-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contract-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(159, 122, 234, 0.3);
+}
+
+.contract-card.active {
+  background: rgba(159, 122, 234, 0.1);
+  border-color: #9f7aea;
+}
+
+.contract-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.contract-id {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #9f7aea;
+  background: rgba(159, 122, 234, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.contract-status {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.contract-status.active {
+  background: rgba(72, 187, 120, 0.2);
+  color: #68d391;
+}
+
+.contract-status.paused {
+  background: rgba(237, 137, 54, 0.2);
+  color: #f6ad55;
+}
+
+.contract-status.deprecated {
+  background: rgba(160, 174, 192, 0.2);
+  color: #a0aec0;
+}
+
+.contract-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 12px 0;
+  color: #e0e6ed;
+}
+
+.contract-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.framework {
+  background: rgba(66, 153, 225, 0.2);
+  color: #63b3ed;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.violations-badge {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: rgba(229, 62, 62, 0.1);
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  border-radius: 6px;
+  color: #fc8181;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Execution Panel */
+.execution-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+.contract-details h2 {
+  font-size: 1.3rem;
+  color: #e0e6ed;
+  margin: 0 0 20px 0;
+}
+
+.contract-details dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px 16px;
+  margin-bottom: 24px;
+}
+
+.contract-details dt {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.contract-details dd {
+  color: #e0e6ed;
+  margin: 0;
+}
+
+.contract-details dd.active {
+  color: #68d391;
+}
+
+/* Test Execution Form */
+.test-execution {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.test-execution h3 {
+  font-size: 1rem;
+  color: #b794f4;
+  margin: 0 0 16px 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input,
+.form-group select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #e0e6ed;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #9f7aea;
+}
+
+.form-group select option {
+  background: #1a1f3a;
+  color: #e0e6ed;
+}
+
+.execute-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #9f7aea, #805ad5);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.execute-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #805ad5, #6b46c1);
+  transform: translateY(-1px);
+}
+
+.execute-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Execution Result */
+.execution-result {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.execution-result.pass {
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.execution-result.warning {
+  border: 1px solid rgba(237, 137, 54, 0.3);
+}
+
+.execution-result.fail {
+  border: 1px solid rgba(229, 62, 62, 0.3);
+}
+
+.execution-result.error {
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  background: rgba(229, 62, 62, 0.1);
+}
+
+.execution-result h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+}
+
+.execution-result.pass h3 {
+  color: #68d391;
+}
+
+.execution-result.warning h3 {
+  color: #f6ad55;
+}
+
+.execution-result.fail h3,
+.execution-result.error h3 {
+  color: #fc8181;
+}
+
+.spec-result,
+.details-list,
+.corrective-actions,
+.alcoa-results,
+.classification,
+.regulatory-refs {
+  margin-bottom: 20px;
+}
+
+.execution-result h4 {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.execution-result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.execution-result li {
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.execution-result li.in_range {
+  border-left: 3px solid #68d391;
+}
+
+.execution-result li.below_minimum,
+.execution-result li.above_maximum {
+  border-left: 3px solid #fc8181;
+}
+
+.execution-result li.approaching_low,
+.execution-result li.approaching_high {
+  border-left: 3px solid #f6ad55;
+}
+
+.deviation {
+  color: #fc8181;
+  font-weight: 600;
+}
+
+.priority {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.priority.high {
+  background: rgba(229, 62, 62, 0.2);
+  color: #fc8181;
+}
+
+.priority.medium {
+  background: rgba(237, 137, 54, 0.2);
+  color: #f6ad55;
+}
+
+.priority.low {
+  background: rgba(72, 187, 120, 0.2);
+  color: #68d391;
+}
+
+/* ALCOA Results */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.principle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.principle.passed {
+  background: rgba(72, 187, 120, 0.1);
+  border: 1px solid rgba(72, 187, 120, 0.2);
+}
+
+.principle.failed {
+  background: rgba(229, 62, 62, 0.1);
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+.principle-status {
+  font-weight: 700;
+}
+
+.principle.passed .principle-status {
+  color: #68d391;
+}
+
+.principle.failed .principle-status {
+  color: #fc8181;
+}
+
+/* Classification */
+.class-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.class-badge.critical {
+  background: rgba(229, 62, 62, 0.2);
+  color: #fc8181;
+}
+
+.class-badge.major {
+  background: rgba(237, 137, 54, 0.2);
+  color: #f6ad55;
+}
+
+.class-badge.minor {
+  background: rgba(72, 187, 120, 0.2);
+  color: #68d391;
+}
+
+.result-hash {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-hash small {
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.4);
+  word-break: break-all;
+}
+
+/* No Contract Selected */
+.no-contract-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.placeholder-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-contract-selected h3 {
+  margin: 0 0 10px 0;
+  color: #e0e6ed;
+}
+
+/* History Panel */
+.history-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.history-panel h2 {
+  font-size: 1.1rem;
+  color: #b794f4;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.empty-history {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-entry {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.history-entry.pass {
+  border-left: 3px solid #68d391;
+}
+
+.history-entry.warning {
+  border-left: 3px solid #f6ad55;
+}
+
+.history-entry.fail {
+  border-left: 3px solid #fc8181;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.entry-contract {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #9f7aea;
+}
+
+.entry-status {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.entry-status.pass {
+  background: rgba(72, 187, 120, 0.2);
+  color: #68d391;
+}
+
+.entry-status.warning {
+  background: rgba(237, 137, 54, 0.2);
+  color: #f6ad55;
+}
+
+.entry-status.fail {
+  background: rgba(229, 62, 62, 0.2);
+  color: #fc8181;
+}
+
+.entry-time {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contracts-panel,
+  .execution-panel,
+  .history-panel {
+    max-height: none;
+  }
+
+  .contracts-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .contracts-list {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
