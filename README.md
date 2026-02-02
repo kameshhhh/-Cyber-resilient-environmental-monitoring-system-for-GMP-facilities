@@ -1,70 +1,187 @@
-# Getting Started with Create React App
+Cyber-Resilient Environmental Monitoring System for GMP Facilities
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web-based environmental monitoring + alerting platform designed for GMP facilities (pharma/biotech/clean rooms) to continuously track critical parameters such as temperature, humidity, and air quality, and ensure data integrity, security, and resilience against cyber threats and failures.
 
-## Available Scripts
+🚀 Problem Statement
 
-In the project directory, you can run:
+GMP (Good Manufacturing Practice) facilities must maintain controlled environmental conditions. Even minor deviations in:
 
-### `npm start`
+Temperature
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Humidity
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Air quality (PM/CO₂)
 
-### `npm test`
+can impact product quality, patient safety, and regulatory compliance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Most monitoring setups fail due to:
 
-### `npm run build`
+Poor alerting systems
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+No secure access control
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+No audit logs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Data tampering risk
 
-### `npm run eject`
+No fail-safe storage & recovery strategy
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+✅ This project solves it with real-time monitoring + cyber-resilient design.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ Key Features
+🌡️ Real-Time Environmental Monitoring
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Live tracking of environmental parameters
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Dashboard view for facility operators
 
-## Learn More
+History logs for analysis and compliance reporting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🚨 Alerts & Threshold Management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Configurable safe limits per environment/room
 
-### Code Splitting
+Alerts on abnormal conditions (out-of-range values)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔐 Cyber-Resilience & Security
 
-### Analyzing the Bundle Size
+Role-based access control (Admin/Operator)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Secure authentication & session management
 
-### Making a Progressive Web App
+Audit logging (who accessed/modified data)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Reduced attack surface with reverse proxy (Nginx)
 
-### Advanced Configuration
+Separation of frontend + backend services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📊 Monitoring & Observability
 
-### Deployment
+Prometheus configuration included for service monitoring
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Production-ready deployment structure using Docker
 
-### `npm run build` fails to minify
+🏗️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend
+
+React.js
+
+UI dashboard + data visualization
+
+Backend / Data
+
+Supabase (Database + Auth)
+
+DevOps / Deployment
+
+Docker + Docker Compose
+
+Nginx (reverse proxy)
+
+Prometheus (monitoring)
+
+🧠 System Architecture (High Level)
+
+Sensors / Input Source
+
+Data stored securely in Supabase database
+
+Web dashboard fetches live + historical data
+
+Alerts triggered on threshold violations
+
+Access controlled by authentication & user roles
+
+Logging for traceability
+
+📂 Project Structure
+.
+├── public/                     # Static assets
+├── src/                        # React frontend source code
+├── Dockerfile                  # App container build
+├── docker-compose.yml          # Dev deployment
+├── docker-compose.prod.yml     # Production deployment
+├── nginx.conf                  # Reverse proxy config
+├── prometheus.yml              # Monitoring configuration
+├── SUPABASE_SETUP.md           # Supabase setup guide
+└── README.md                   # Documentation
+
+⚙️ Setup & Installation (Local)
+✅ 1) Clone the Repository
+git clone https://github.com/kameshhhh/-Cyber-resilient-environmental-monitoring-system-for-GMP-facilities.git
+cd -Cyber-resilient-environmental-monitoring-system-for-GMP-facilities
+
+✅ 2) Install Dependencies
+npm install
+
+✅ 3) Configure Environment Variables
+
+Create a .env file in the project root:
+
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+
+✅ Refer: SUPABASE_SETUP.md
+
+▶️ Run the Project
+Run with npm
+npm start
+
+
+App will run at:
+
+http://localhost:3000
+
+🐳 Run Using Docker
+Development Mode
+docker-compose up --build
+
+Production Mode
+docker-compose -f docker-compose.prod.yml up --build
+
+📈 Monitoring with Prometheus
+
+This repository includes a prometheus.yml configuration to support monitoring of deployed services.
+
+To use Prometheus:
+
+Install Prometheus
+
+Load the config file
+
+Start Prometheus and view metrics at:
+
+http://localhost:9090
+
+🧪 Example Use Cases
+
+✅ GMP Clean Room Monitoring
+✅ Pharma Storage Condition Tracking
+✅ Lab Monitoring & Compliance Logging
+✅ Alert System for Critical Deviations
+✅ Secure multi-user monitoring dashboard
+
+🔮 Future Enhancements
+
+Planned improvements:
+
+IoT sensor integration (ESP32 / MQTT)
+
+SMS/Email alerts (Twilio / SendGrid)
+
+AI-based anomaly detection
+
+Full audit trail export (CSV/PDF)
+
+Compliance-ready reports (21 CFR Part 11 style approach)
+
+👨‍💻 Author
+
+Kamesh
+Project: Cyber-Resilient Environmental Monitoring System for GMP Facilities
+
+📜 License
+
+This project is for learning/hackathon/demo purposes.
